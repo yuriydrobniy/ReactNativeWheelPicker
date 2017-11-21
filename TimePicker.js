@@ -149,8 +149,8 @@ const dateTo12Hour = dateString => {
 
 function getHoursArray(is24Hours) {
   const arr = [];
-  const hours = is24Hours ? 24 : 13
-  for (let i = 1; i < hours + 1; i++) {
+  const hours = is24Hours ? 23 : 13
+  for (let i = 0; i < hours + 1; i++) {
     arr.push(i);
   }
   return arr;
