@@ -35,12 +35,12 @@ class TimePicker extends React.Component {
     const minutesInHour = 60;
     this.initMinuteInex = Math.round(this.selectedDate.getMinutes());
 
-    if (!props.is24hours) {
+    if (props.is24hours) {
+      this.initHourInex = this.selectedDate.getHours();
+    } else {
       const time12format = hourTo12Format(this.selectedDate.getHours());
       this.initHourInex = time12format[0] - 1;
       this.initAmInex = time12format[1] === 'AM' ? 0 : 1;
-    } else {
-      this.initHourInex = this.selectedDate.getHours() - 1;
     }
   }
 
