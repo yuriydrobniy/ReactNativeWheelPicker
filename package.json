@@ -1,6 +1,6 @@
 {
   "name": "@freework/react-native-wheel-picker-android",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Simple Wheel Picker for Android to use with react-native",
   "main": "index.js",
   "repository": {
