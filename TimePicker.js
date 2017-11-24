@@ -26,7 +26,7 @@ class TimePicker extends React.Component {
       ? new Date(this.props.initDate)
       : new Date();
 
-    this.hours = this.props.hours ? this.props.hours : getHoursArray(props.is24hours);
+    this.hours = this.props.hours ? this.props.hours : getHoursArray(props.format24);
     this.minutes = this.props.minutes
       ? this.props.minutes
       : getFiveMinutesArray();
@@ -35,7 +35,7 @@ class TimePicker extends React.Component {
     const minutesInHour = 60;
     this.initMinuteInex = Math.round(this.selectedDate.getMinutes());
 
-    if (props.is24hours) {
+    if (props.format24) {
       this.initHourInex = this.selectedDate.getHours();
     } else {
       const time12format = hourTo12Format(this.selectedDate.getHours());
@@ -69,7 +69,7 @@ class TimePicker extends React.Component {
           onItemSelected={data => this.onMinuteSelected(data)}
           selectedItemPosition={this.initMinuteInex}
         />
-        {!this.props.is24hours && (
+        {!this.props.format24 && (
           <WheelPicker
             style={styles.wheelPicker}
             isAtmospheric
