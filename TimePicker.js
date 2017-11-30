@@ -40,7 +40,7 @@ class TimePicker extends React.Component {
     } else {
       const time12format = hourTo12Format(this.selectedDate.getHours());
       this.initHourInex = time12format[0] - 1;
-      this.initAmInex = time12format[1] === 'AM' ? 0 : 1;
+      this.initAmInex = this.selectedDate.getHours() < 12 ? 0 : 1;
     }
   }
 
@@ -77,7 +77,7 @@ class TimePicker extends React.Component {
             visibleItemCount={6}
             data={getAmArray()}
             selectedItemTextColor={'black'}
-            onItemSelected={data => this.onAmSelected(data)}
+            onItemSelected={data => this.onSetHoursByAmPm(data)}
             selectedItemPosition={this.initAmInex}
           />
         )}
@@ -89,7 +89,16 @@ class TimePicker extends React.Component {
     const time12format = hourTo12Format(this.selectedDate.getHours());
     const newTime12Format = `${event.data} ${time12format[1]}`;
     this.selectedDate.setHours(event.data);
+
+    const isPm = this.initAmInex === 1;
+    isPm && this.onPmHoursSelected();
+
     this.onTimeSelected();
+  }
+
+  onPmHoursSelected() {
+    this.onSetHoursByAmPm({ data: 'PM'})
+    return;
   }
 
   onMinuteSelected(event) {
@@ -97,7 +106,7 @@ class TimePicker extends React.Component {
     this.onTimeSelected();
   }
 
-  onAmSelected(event) {
+  onSetHoursByAmPm(event) {
     const time12format = hourTo12Format(this.selectedDate.getHours());
     const newTime12Format = `${time12format[0]} ${event.data}`;
     const selectedHour24format = hourTo24Format(newTime12Format);
