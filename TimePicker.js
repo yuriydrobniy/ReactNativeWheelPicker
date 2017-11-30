@@ -88,8 +88,7 @@ class TimePicker extends React.Component {
   onHourSelected(event) {
     const time12format = hourTo12Format(this.selectedDate.getHours());
     const newTime12Format = `${event.data} ${time12format[1]}`;
-    const selectedHour24format = hourTo24Format(newTime12Format);
-    this.selectedDate.setHours(selectedHour24format);
+    this.selectedDate.setHours(event.data);
     this.onTimeSelected();
   }
 
