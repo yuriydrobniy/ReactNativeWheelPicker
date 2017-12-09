@@ -38,8 +38,7 @@ class DatePicker extends React.Component {
         <WheelPicker
           style={styles.dateWheelPicker}
           isAtmospheric
-          isCurved
-          visibleItemCount={8}
+          visibleItemCount={4}
           data={this.props.days ? this.props.days : PickerDateArray(this.props.startDate, this.props.daysCount)}
           selectedItemTextColor={'black'}
           onItemSelected={data => this.onDaySelected(data)}
@@ -49,9 +48,14 @@ class DatePicker extends React.Component {
           style={styles.wheelPicker}
           isAtmospheric
           isCyclic
-          isCurved
-          visibleItemCount={8}
-          data={this.props.hours ? this.props.hours : getHoursArray()}
+          visibleItemCount={4}
+          data={
+            this.props.hours
+              ? this.props.hours
+              : this.props.format24
+              ? get24HoursArray()
+              : getHoursArray()
+          }
           selectedItemTextColor={'black'}
           onItemSelected={data => this.onHourSelected(data)}
           selectedItemPosition={this.initHourInex}
@@ -60,8 +64,7 @@ class DatePicker extends React.Component {
           style={styles.wheelPicker}
           isAtmospheric
           isCyclic
-          isCurved
-          visibleItemCount={8}
+          visibleItemCount={4}
           data={this.props.minutes ? this.props.minutes : getFiveMinutesArray()}
           selectedItemTextColor={'black'}
           onItemSelected={data => this.onMinuteSelected(data)}
@@ -213,6 +216,15 @@ const PickerDateArray = (startDate, daysCount) => {
 function formatDatePicker(date) {
   const strDate = moment(date).format('ddd MMM D');
   return strDate;
+}
+
+function get24HoursArray() {
+  const arr = [];
+  arr.push('00');
+  for (let i = 1; i < 24; i++) {
+    arr.push(`${i}`);
+  }
+  return arr;
 }
 
 function getHoursArray() {
