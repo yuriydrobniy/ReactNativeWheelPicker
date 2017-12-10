@@ -43,6 +43,9 @@ class DatePicker extends React.Component {
           selectedItemTextColor={'black'}
           onItemSelected={data => this.onDaySelected(data)}
           selectedItemPosition={this.initDayInex}
+          renderIndicator
+          indicatorColor={'gray'}
+          itemTextSize={18}
         />
         <WheelPicker
           style={styles.wheelPicker}
@@ -59,6 +62,9 @@ class DatePicker extends React.Component {
           selectedItemTextColor={'black'}
           onItemSelected={data => this.onHourSelected(data)}
           selectedItemPosition={this.initHourInex}
+          renderIndicator
+          indicatorColor={'gray'}
+          itemTextSize={18}
         />
         <WheelPicker
           style={styles.wheelPicker}
@@ -69,6 +75,9 @@ class DatePicker extends React.Component {
           selectedItemTextColor={'black'}
           onItemSelected={data => this.onMinuteSelected(data)}
           selectedItemPosition={this.initMinuteInex}
+          renderIndicator
+          indicatorColor={'gray'}
+          itemTextSize={18}
         />
         {this.renderAm()}
       </View>
@@ -82,7 +91,7 @@ class DatePicker extends React.Component {
           style={styles.wheelPicker}
           isAtmospheric
           isCurved
-          visibleItemCount={8}
+          visibleItemCount={4}
           data={getAmArray()}
           selectedItemTextColor={'black'}
           onItemSelected={data => this.onAmSelected(data)}
@@ -156,12 +165,12 @@ let styles = StyleSheet.create({
     flexDirection: 'row',
   },
   wheelPicker: {
-    height: 150,
+    height: 160,
     width: null,
     flex: 1,
   },
   dateWheelPicker: {
-    height: 200,
+    height: 160,
     width: null,
     flex: 3,
   },
@@ -214,7 +223,7 @@ const PickerDateArray = (startDate, daysCount) => {
 };
 
 function formatDatePicker(date) {
-  const strDate = moment(date).format('ddd MMM D');
+  const strDate = moment(date).format('dd. DD. MMM');
   return strDate;
 }
 
