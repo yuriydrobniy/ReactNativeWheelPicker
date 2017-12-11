@@ -40,12 +40,12 @@ class DatePicker extends React.Component {
           isAtmospheric
           visibleItemCount={4}
           data={this.props.days ? this.props.days : PickerDateArray(this.props.startDate, this.props.daysCount)}
-          selectedItemTextColor={'black'}
           onItemSelected={data => this.onDaySelected(data)}
           selectedItemPosition={this.initDayInex}
           renderIndicator
-          indicatorColor={'gray'}
+          indicatorColor={'#e6eaeb'}
           itemTextSize={18}
+          selectedItemTextColor={'#0d2e3f'}
         />
         <WheelPicker
           style={styles.wheelPicker}
@@ -59,12 +59,12 @@ class DatePicker extends React.Component {
               ? get24HoursArray()
               : getHoursArray()
           }
-          selectedItemTextColor={'black'}
           onItemSelected={data => this.onHourSelected(data)}
           selectedItemPosition={this.initHourInex}
           renderIndicator
-          indicatorColor={'gray'}
+          indicatorColor={'#e6eaeb'}
           itemTextSize={18}
+          selectedItemTextColor={'#0d2e3f'}
         />
         <WheelPicker
           style={styles.wheelPicker}
@@ -72,12 +72,12 @@ class DatePicker extends React.Component {
           isCyclic
           visibleItemCount={4}
           data={this.props.minutes ? this.props.minutes : getFiveMinutesArray()}
-          selectedItemTextColor={'black'}
           onItemSelected={data => this.onMinuteSelected(data)}
           selectedItemPosition={this.initMinuteInex}
           renderIndicator
-          indicatorColor={'gray'}
+          indicatorColor={'#e6eaeb'}
           itemTextSize={18}
+          selectedItemTextColor={'#0d2e3f'}
         />
         {this.renderAm()}
       </View>
@@ -172,7 +172,7 @@ let styles = StyleSheet.create({
   dateWheelPicker: {
     height: 160,
     width: null,
-    flex: 3,
+    flex: 2,
   },
 });
 

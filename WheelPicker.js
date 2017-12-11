@@ -42,6 +42,7 @@ class WheelPicker extends React.Component {
          visibleItemCount={this.props.visibleItemCount}
          renderIndicator={this.props.renderIndicator}
          indicatorColor={this.props.indicatorColor}
+         indicatorSize={this.props.indicatorSize}
          isCurtain={this.props.isCurtain}
          curtainColor={this.props.curtainColor}
          itemTextColor={this.props.itemTextColor}
@@ -65,6 +66,7 @@ WheelPicker.propTypes = {
       visibleItemCount: PropTypes.number,
       renderIndicator: PropTypes.bool,
       indicatorColor: PropTypes.string,
+      indicatorSize: PropTypes.number,
       isCurtain: PropTypes.bool,
       curtainColor: PropTypes.string,
       itemTextColor: PropTypes.string,
