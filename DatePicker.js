@@ -4,7 +4,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import WheelPicker from './WheelPicker';
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales'
 import PropTypes from 'prop-types';
 
 class DatePicker extends React.Component {
@@ -46,6 +46,7 @@ class DatePicker extends React.Component {
           indicatorColor={'#e6eaeb'}
           itemTextSize={18}
           selectedItemTextColor={'#0d2e3f'}
+          // indicatorSize={18}
         />
         <WheelPicker
           style={styles.wheelPicker}
